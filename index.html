@@ -1,67 +1,74 @@
-<title>Dan Tran — Teaching Portfolio</title>
+<title>Dan Tran — Curriculum Vitae</title>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Public+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
   /* ============ TOKENS ============ */
   :root{
-    --paper: #EEF0E7;
-    --paper-deep: #E2E6D6;
-    --paper-line: #C9CFBC;
-    --ink: #1E2A22;
-    --ink-soft: #4B5850;
-    --ink-faint: #5A6A5E;
-    --amber: #8F5710;
-    --amber-ink: #3A2408;
-    --board: #16211B;
-    --board-line: #33453A;
-    --chalk: #EDEFE6;
-    --chalk-soft: #A9B7AC;
+    --paper: #F3F4EF;
+    --paper-deep: #FFFFFF;
+    --border: #D8DAD0;
+    --ink: #17263B;
+    --ink-soft: #45566B;
+    --ink-faint: #586878;
+    --gold: #8A6415;
+    --gold-strong: #6E4F0F;
+    --moss: #2F4B3C;
+    --navy-deep: #101C2E;
 
     --bg: var(--paper);
     --surface: var(--paper-deep);
-    --border: var(--paper-line);
+    --border-c: var(--border);
     --text: var(--ink);
     --text-soft: var(--ink-soft);
     --text-faint: var(--ink-faint);
-    --accent: var(--amber);
-    --accent-on: #FFF8EE;
+    --accent: var(--gold);
+    --accent-strong: var(--gold-strong);
+    --sidebar: var(--navy-deep);
+    --sidebar-text: #EEF0E6;
+    --sidebar-text-soft: #A9B6C4;
+    --accent-on-sidebar: #D2A44B;
 
-    --font-display: 'Newsreader', Georgia, 'Times New Roman', serif;
-    --font-body: 'IBM Plex Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-    --font-mono: 'IBM Plex Mono', ui-monospace, 'SFMono-Regular', Menlo, Consolas, monospace;
+    --font-display: 'Crimson Pro', Georgia, 'Times New Roman', serif;
+    --font-body: 'Public Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   }
 
   @media (prefers-color-scheme: dark){
     :root:not([data-theme="light"]){
-      --bg: #131D18;
-      --surface: #1B2820;
-      --border: #2E3E34;
-      --text: var(--chalk);
-      --text-soft: var(--chalk-soft);
-      --text-faint: #889687;
-      --accent: #E2963C;
-      --accent-on: #241300;
+      --bg: #101B2C;
+      --surface: #16233A;
+      --border-c: #263A56;
+      --text: #EAEDF2;
+      --text-soft: #B7C2D6;
+      --text-faint: #8D9AB0;
+      --accent: #D2A44B;
+      --accent-strong: #E7BE6C;
+      --sidebar: #0B1524;
+      --sidebar-text: #EEF0E6;
+      --sidebar-text-soft: #93A1B6;
     }
   }
   :root[data-theme="dark"]{
-    --bg: #131D18;
-    --surface: #1B2820;
-    --border: #2E3E34;
-    --text: var(--chalk);
-    --text-soft: var(--chalk-soft);
-    --text-faint: #889687;
-    --accent: #E2963C;
-    --accent-on: #241300;
+    --bg: #101B2C;
+    --surface: #16233A;
+    --border-c: #263A56;
+    --text: #EAEDF2;
+    --text-soft: #B7C2D6;
+    --text-faint: #8D9AB0;
+    --accent: #D2A44B;
+    --accent-strong: #E7BE6C;
+    --sidebar: #0B1524;
+    --sidebar-text: #EEF0E6;
+    --sidebar-text-soft: #93A1B6;
   }
 
   *{ box-sizing: border-box; }
   html{ scroll-behavior: smooth; }
   @media (prefers-reduced-motion: reduce){
     html{ scroll-behavior: auto; }
-    *, *::before, *::after{ animation-duration: 0.001ms !important; animation-iteration-count: 1 !important; transition-duration: 0.001ms !important; scroll-behavior: auto !important; }
+    *, *::before, *::after{ animation-duration: 0.001ms !important; animation-iteration-count: 1 !important; transition-duration: 0.001ms !important; }
   }
 
   body{
@@ -70,293 +77,206 @@
     color: var(--text);
     font-family: var(--font-body);
     font-size: 17px;
-    line-height: 1.65;
+    line-height: 1.68;
     -webkit-font-smoothing: antialiased;
   }
 
-  h1, h2, h3{
-    font-family: var(--font-display);
-    font-weight: 500;
-    text-wrap: balance;
-    margin: 0;
-    color: var(--text);
+  h1, h2, h3{ font-family: var(--font-display); font-weight: 600; text-wrap: balance; margin: 0; color: var(--text); }
+  a{ color: inherit; text-decoration: none; }
+  a:focus-visible, button:focus-visible{ outline: 2px solid var(--accent); outline-offset: 3px; }
+
+  .wrap{ max-width: 980px; margin: 0 auto; padding: 0 32px; }
+
+  /* ============ NAV ============ */
+  .site-nav{
+    position: sticky; top: 0; z-index: 20;
+    background: var(--sidebar);
+    border-bottom: 1px solid var(--border-c);
   }
-
-  a{ color: inherit; }
-  a:focus-visible, button:focus-visible, summary:focus-visible{
-    outline: 2px solid var(--accent);
-    outline-offset: 3px;
+  .site-nav .wrap{ display: flex; align-items: center; justify-content: space-between; gap: 24px; padding-top: 16px; padding-bottom: 16px; }
+  .site-nav .mark{ font-family: var(--font-display); font-weight: 600; font-size: 1.08rem; color: var(--sidebar-text); white-space: nowrap; }
+  .site-nav .mark span{ color: var(--accent-on-sidebar); }
+  .site-nav .links{ display: flex; gap: 26px; overflow-x: auto; scrollbar-width: none; }
+  .site-nav .links::-webkit-scrollbar{ display: none; }
+  .site-nav .links a{
+    font-size: 0.86rem; font-weight: 500; letter-spacing: 0.02em;
+    color: var(--sidebar-text-soft); white-space: nowrap;
+    padding: 4px 0; border-bottom: 1px solid transparent;
   }
-
-  .wrap{
-    max-width: 1040px;
-    margin: 0 auto;
-    padding: 0 28px;
-  }
-
-  .eyebrow{
-    font-family: var(--font-mono);
-    font-size: 0.78rem;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    color: var(--accent);
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    margin-bottom: 18px;
-  }
-  .eyebrow::before{ content: ""; width: 22px; height: 1px; background: var(--accent); display: block; }
-
-  section{ padding: 88px 0; border-bottom: 1px solid var(--border); }
-  section:last-of-type{ border-bottom: none; }
-
-  .prose{ max-width: 66ch; }
-  .prose p{ color: var(--text-soft); margin: 0 0 1.1em; }
-  .prose p:last-child{ margin-bottom: 0; }
+  .site-nav .links a:hover{ color: var(--sidebar-text); border-bottom-color: var(--accent-on-sidebar); }
 
   /* ============ HERO ============ */
-  .hero{
-    position: relative;
-    background: var(--board);
-    color: var(--chalk);
-    overflow: hidden;
-    border-bottom: 1px solid var(--board-line);
-    padding: 96px 0 76px;
+  .hero{ padding: 76px 0 60px; border-bottom: 3px double var(--border-c); }
+  .hero .eyebrow-top{
+    font-size: 0.82rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--accent); margin-bottom: 20px;
   }
-  .hero::before{
-    content: "";
-    position: absolute; inset: 0;
-    opacity: 0.5;
-    mix-blend-mode: overlay;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.35'/%3E%3C/svg%3E");
-    pointer-events: none;
+  .hero h1{ font-size: clamp(2.6rem, 5.6vw, 3.8rem); line-height: 1.05; }
+  .hero .role{ font-size: 1.15rem; color: var(--text-soft); margin-top: 14px; font-weight: 500; }
+  .hero .rule{ width: 64px; height: 2px; background: var(--accent); margin: 30px 0; border: none; }
+  .hero .summary{ max-width: 62ch; color: var(--text-soft); font-size: 1.04rem; }
+  .hero .thesis{
+    font-family: var(--font-display); font-style: italic; font-size: 1.28rem;
+    color: var(--text); margin: 30px 0 0; line-height: 1.5; max-width: 58ch;
   }
-  .hero .wrap{ position: relative; }
+  .hero .thesis .arrow{ color: var(--accent); font-style: normal; padding: 0 2px; }
+  .hero .meta{
+    margin-top: 40px; display: flex; flex-wrap: wrap; gap: 10px 30px;
+    font-size: 0.88rem; color: var(--text-faint);
+  }
+  .hero .meta strong{ color: var(--text-soft); font-weight: 600; }
 
-  .hero-kicker{
-    font-family: var(--font-mono);
-    font-size: 0.82rem;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    color: #E2963C;
-    margin-bottom: 22px;
+  /* ============ SECTION SCAFFOLD ============ */
+  section{ padding: 68px 0; border-bottom: 1px solid var(--border-c); }
+  section:last-of-type{ border-bottom: none; }
+  .eyebrow{
+    font-size: 0.82rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--accent); margin-bottom: 16px; display: flex; align-items: baseline; gap: 10px;
   }
+  .eyebrow .n{ font-family: var(--font-display); font-style: italic; font-weight: 500; font-size: 1rem; color: var(--text-faint); }
+  .section-head{ margin-bottom: 40px; }
+  h2.section-title{ font-size: clamp(1.6rem, 2.9vw, 2.15rem); max-width: 20ch; }
+  .section-head p{ color: var(--text-soft); max-width: 62ch; margin-top: 12px; }
 
-  .hero h1{
-    color: var(--chalk);
-    font-size: clamp(2.4rem, 5.4vw, 4rem);
-    line-height: 1.08;
-    max-width: 14ch;
-  }
-  .hero h1 em{ font-style: italic; color: #E2963C; }
+  .prose p{ color: var(--text-soft); margin: 0 0 1.15em; }
+  .prose p:last-child{ margin-bottom: 0; }
 
-  .hero-sub{
-    font-family: var(--font-mono);
-    font-size: 0.98rem;
-    color: var(--chalk-soft);
-    margin-top: 22px;
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    gap: 0.5em 0.6em;
-  }
-  .hero-sub .arrow{ color: #E2963C; }
-
-  .pipeline{
-    margin-top: 56px;
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    gap: 10px;
-    row-gap: 14px;
-  }
-  .pipeline .chip{
-    font-family: var(--font-mono);
-    font-size: 0.82rem;
-    color: var(--chalk);
-    background: rgba(237,239,230,0.06);
-    border: 1px solid var(--board-line);
-    padding: 7px 13px;
-    border-radius: 3px;
-    white-space: nowrap;
-    opacity: 0;
-    transform: translateY(6px);
-    animation: chip-in 0.5s ease forwards;
-  }
-  .pipeline .chip.solution{ color: #241300; background: #E2963C; border-color: #E2963C; font-weight: 600; }
-  .pipeline .sep{ color: #6E7C71; font-size: 0.9rem; }
-  @keyframes chip-in{ to{ opacity: 1; transform: translateY(0); } }
-
-  .hero-loc{
-    margin-top: 44px;
-    font-size: 0.92rem;
-    color: var(--chalk-soft);
-  }
-  .hero-loc strong{ color: var(--chalk); font-weight: 500; }
-
-  /* ============ CARD / GRID ============ */
-  .grid{ display: grid; gap: 20px; }
+  /* ============ GRID / CARD ============ */
+  .grid{ display: grid; gap: 18px; }
   .grid-2{ grid-template-columns: repeat(2, 1fr); }
   .grid-3{ grid-template-columns: repeat(3, 1fr); }
-  @media (max-width: 720px){ .grid-2, .grid-3{ grid-template-columns: 1fr; } }
+  @media (max-width: 760px){ .grid-2, .grid-3{ grid-template-columns: 1fr; } }
 
   .card{
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: 6px;
-    padding: 26px 26px 24px;
+    background: var(--surface); border: 1px solid var(--border-c);
+    border-left: 3px solid var(--accent);
+    padding: 24px 24px 22px;
   }
-  .card h3{ font-size: 1.2rem; margin-bottom: 6px; }
-  .card .tagline{ font-family: var(--font-mono); font-size: 0.78rem; color: var(--text-faint); margin-bottom: 16px; display: block; }
-  .card p{ color: var(--text-soft); font-size: 0.96rem; margin: 0 0 16px; }
+  .card h3{ font-size: 1.16rem; margin-bottom: 4px; }
+  .card .tagline{ font-size: 0.82rem; color: var(--text-faint); margin-bottom: 14px; display: block; font-style: italic; font-family: var(--font-display); }
+  .card p{ color: var(--text-soft); font-size: 0.95rem; margin: 0 0 14px; }
 
-  .tags{ display: flex; flex-wrap: wrap; gap: 7px; }
+  .tags{ display: flex; flex-wrap: wrap; gap: 8px; }
   .tag{
-    font-family: var(--font-mono);
-    font-size: 0.76rem;
-    color: var(--chalk);
-    background: var(--board);
-    border: 1px solid var(--board-line);
-    padding: 4px 9px;
-    border-radius: 3px;
+    font-size: 0.8rem; color: var(--text-soft);
+    background: transparent; border: 1px solid var(--border-c);
+    padding: 4px 11px; border-radius: 2px;
   }
-  .tag.amber{ background: #E2963C; color: #241300; border-color: #E2963C; }
 
   /* ============ MATH -> TECH MAP ============ */
-  .maplist{ display: flex; flex-direction: column; gap: 4px; }
+  .maplist{ display: flex; flex-direction: column; }
   .maprow{
-    display: grid;
-    grid-template-columns: 1fr auto 1fr;
-    align-items: center;
-    gap: 14px;
-    padding: 13px 4px;
-    border-bottom: 1px dashed var(--border);
-    font-family: var(--font-mono);
-    font-size: 0.92rem;
+    display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: 14px;
+    padding: 14px 0; border-bottom: 1px solid var(--border-c);
   }
   .maprow:last-child{ border-bottom: none; }
-  .maprow .math{ text-align: right; color: var(--text); }
-  .maprow .tech{ color: var(--accent); }
-  .maprow .arrow{ color: var(--text-faint); text-align: center; }
+  .maprow .math{ text-align: right; color: var(--text); font-weight: 600; }
+  .maprow .tech{ color: var(--accent-strong); font-weight: 600; }
+  .maprow .arrow{ color: var(--text-faint); text-align: center; font-family: var(--font-display); font-style: italic; }
 
   /* ============ PHILOSOPHY ============ */
-  .principle{ padding: 26px 0; border-bottom: 1px solid var(--border); display: grid; grid-template-columns: 200px 1fr; gap: 28px; }
+  .principle{ padding: 28px 0; border-bottom: 1px solid var(--border-c); display: grid; grid-template-columns: 220px 1fr; gap: 30px; }
   .principle:last-child{ border-bottom: none; }
-  .principle h3{ font-size: 1.3rem; }
-  @media (max-width: 720px){ .principle{ grid-template-columns: 1fr; gap: 8px; } }
-  .principle .before{ font-family: var(--font-mono); font-size: 0.86rem; color: var(--text-faint); }
-  .principle .before span{ text-decoration: line-through; text-decoration-color: var(--text-faint); }
-  .principle .after{ font-family: var(--font-mono); font-size: 0.86rem; color: var(--accent); margin-top: 6px; }
+  .principle h3{ font-size: 1.32rem; }
+  @media (max-width: 760px){ .principle{ grid-template-columns: 1fr; gap: 10px; } }
+  .principle .before{ font-size: 0.88rem; color: var(--text-faint); font-style: italic; }
+  .principle .before span{ text-decoration: line-through; }
+  .principle .after{ font-size: 0.9rem; color: var(--accent-strong); font-weight: 600; margin-top: 8px; }
 
-  /* ============ FAQ QUOTES ============ */
-  .faq{ font-family: var(--font-display); font-style: italic; font-size: 1.2rem; color: var(--text); border-left: 2px solid var(--accent); padding: 4px 0 4px 20px; margin: 0 0 20px; }
+  /* ============ FAQ / CHIPCLOUD ============ */
+  .faq{ font-family: var(--font-display); font-style: italic; font-size: 1.18rem; color: var(--text); border-left: 2px solid var(--accent); padding: 3px 0 3px 20px; margin: 0 0 20px; }
   .faq:last-child{ margin-bottom: 0; }
-
   .chipcloud{ display: flex; flex-wrap: wrap; gap: 9px; margin-top: 8px; }
-  .chipcloud span{
-    font-family: var(--font-mono); font-size: 0.85rem; color: var(--text);
-    background: var(--surface); border: 1px solid var(--border);
-    padding: 7px 13px; border-radius: 20px;
-  }
+  .chipcloud span{ font-size: 0.86rem; color: var(--text-soft); border: 1px solid var(--border-c); padding: 7px 14px; border-radius: 2px; }
 
   /* ============ LANGUAGES ============ */
-  .langrow{ display: grid; grid-template-columns: 120px 1fr 200px; align-items: center; gap: 18px; padding: 13px 0; }
+  .langrow{ display: grid; grid-template-columns: 130px 1fr 190px; align-items: center; gap: 18px; padding: 13px 0; }
   .langrow .name{ font-weight: 600; }
-  .langbar{ height: 6px; background: var(--border); border-radius: 3px; overflow: hidden; }
-  .langbar > span{ display: block; height: 100%; background: var(--accent); border-radius: 3px; }
-  .langrow .level{ font-family: var(--font-mono); font-size: 0.82rem; color: var(--text-soft); text-align: right; }
-  @media (max-width: 640px){ .langrow{ grid-template-columns: 90px 1fr; } .langrow .level{ grid-column: 1 / -1; text-align: left; } }
+  .langbar{ height: 4px; background: var(--border-c); }
+  .langbar > span{ display: block; height: 100%; background: var(--accent); }
+  .langrow .level{ font-size: 0.83rem; color: var(--text-soft); text-align: right; }
+  @media (max-width: 640px){ .langrow{ grid-template-columns: 100px 1fr; } .langrow .level{ grid-column: 1 / -1; text-align: left; } }
 
   /* ============ PROJECTS ============ */
-  .proj{ background: var(--surface); border: 1px solid var(--border); border-radius: 6px; padding: 24px; display: flex; flex-direction: column; gap: 14px; }
-  .proj .num{ font-family: var(--font-mono); font-size: 0.82rem; color: var(--accent); }
-  .proj h3{ font-size: 1.15rem; }
-  .proj p{ color: var(--text-soft); font-size: 0.94rem; margin: 0; }
+  .proj{ background: var(--surface); border: 1px solid var(--border-c); padding: 22px; display: flex; flex-direction: column; gap: 12px; }
+  .proj .num{ font-family: var(--font-display); font-style: italic; font-size: 1.1rem; color: var(--accent); }
+  .proj h3{ font-size: 1.12rem; }
+  .proj p{ color: var(--text-soft); font-size: 0.93rem; margin: 0; }
 
-  /* ============ TIMELINE (roadmap) ============ */
-  .timeline{ position: relative; margin-top: 8px; }
-  .timeline::before{ content: ""; position: absolute; left: 15px; top: 6px; bottom: 6px; width: 1px; background: var(--border); }
-  .tl-item{ position: relative; padding: 0 0 40px 46px; }
+  /* ============ TIMELINE ============ */
+  .timeline{ position: relative; margin-top: 6px; }
+  .timeline::before{ content: ""; position: absolute; left: 15px; top: 6px; bottom: 6px; width: 1px; background: var(--border-c); }
+  .tl-item{ position: relative; padding: 0 0 38px 48px; }
   .tl-item:last-child{ padding-bottom: 0; }
   .tl-item::before{
-    content: attr(data-n);
-    position: absolute; left: 0; top: 0;
-    width: 31px; height: 31px;
-    border-radius: 50%;
-    background: var(--bg);
-    border: 1px solid var(--accent);
-    color: var(--accent);
-    font-family: var(--font-mono);
-    font-size: 0.8rem;
+    content: attr(data-n); position: absolute; left: 0; top: 0;
+    width: 31px; height: 31px; border-radius: 50%;
+    background: var(--bg); border: 1px solid var(--accent); color: var(--accent-strong);
+    font-family: var(--font-display); font-weight: 600; font-size: 0.9rem;
     display: flex; align-items: center; justify-content: center;
   }
-  .tl-item.current::before{ background: var(--accent); color: var(--accent-on); }
+  .tl-item.current::before{ background: var(--accent); color: var(--surface); border-color: var(--accent); }
   .tl-item h3{ font-size: 1.08rem; margin-bottom: 4px; }
   .tl-item p{ color: var(--text-soft); font-size: 0.95rem; margin: 0; }
   .tl-item ul{ margin: 8px 0 0; padding-left: 18px; color: var(--text-soft); font-size: 0.95rem; }
 
   /* ============ CLOSING ============ */
-  .closing{ background: var(--board); color: var(--chalk); border-bottom: none; }
-  .closing .eyebrow{ color: #E2963C; }
-  .closing .eyebrow::before{ background: #E2963C; }
-  .closing h2{ color: var(--chalk); font-size: clamp(1.7rem, 3.4vw, 2.5rem); max-width: 20ch; }
-  .closing .equation{ font-family: var(--font-mono); color: #E2963C; font-size: 1.05rem; margin-top: 28px; letter-spacing: 0.02em; }
-  .closing .vlist{ margin-top: 30px; display: flex; flex-wrap: wrap; gap: 10px 26px; }
-  .closing .vlist span{ font-family: var(--font-mono); font-size: 0.9rem; color: var(--chalk-soft); }
+  .closing{ background: var(--sidebar); color: var(--sidebar-text); border-bottom: none; }
+  .closing .eyebrow{ color: var(--accent-on-sidebar); }
+  .closing .eyebrow .n{ color: var(--sidebar-text-soft); }
+  .closing h2{ color: var(--sidebar-text); font-size: clamp(1.7rem, 3.2vw, 2.4rem); max-width: 22ch; }
+  .closing .prose p{ color: var(--sidebar-text-soft); max-width: 58ch; margin-top: 18px; }
+  .closing .equation{ font-family: var(--font-display); font-style: italic; color: var(--accent-on-sidebar); font-size: 1.08rem; margin-top: 30px; }
 
-  footer{ background: var(--board); color: var(--chalk-soft); padding: 44px 0 60px; }
-  footer .name{ font-family: var(--font-display); font-size: 1.3rem; color: var(--chalk); }
-  footer .role{ font-family: var(--font-mono); font-size: 0.82rem; color: #E2963C; margin-top: 6px; }
-  footer .tag{ margin-top: 18px; font-size: 0.92rem; max-width: 46ch; }
-  footer .stack{ margin-top: 22px; font-family: var(--font-mono); font-size: 0.78rem; color: var(--chalk-soft); }
-
-  h2.section-title{ font-size: clamp(1.6rem, 3vw, 2.2rem); max-width: 18ch; margin-bottom: 14px; }
-  .section-head{ margin-bottom: 44px; }
-  .section-head p{ color: var(--text-soft); max-width: 60ch; margin-top: 10px; }
+  footer{ background: var(--sidebar); color: var(--sidebar-text-soft); padding: 40px 0 56px; border-top: 1px solid var(--border-c); }
+  footer .name{ font-family: var(--font-display); font-weight: 600; font-size: 1.25rem; color: var(--sidebar-text); }
+  footer .role{ font-size: 0.86rem; color: var(--accent-on-sidebar); margin-top: 6px; }
+  footer .tag{ margin-top: 16px; font-size: 0.9rem; max-width: 48ch; }
+  footer .stack{ margin-top: 20px; font-size: 0.78rem; letter-spacing: 0.04em; text-transform: uppercase; }
 </style>
+
+<nav class="site-nav">
+  <div class="wrap">
+    <div class="mark">Dan Tran <span>·</span> Portfolio</div>
+    <div class="links">
+      <a href="#about">About</a>
+      <a href="#teaching-areas">Teaching Areas</a>
+      <a href="#philosophy">Philosophy</a>
+      <a href="#experience">Experience</a>
+      <a href="#projects">Projects</a>
+      <a href="#roadmap">Roadmap</a>
+    </div>
+  </div>
+</nav>
 
 <article>
 
   <section class="hero">
     <div class="wrap">
-      <div class="hero-kicker">// aspiring secondary teacher</div>
-      <h1>Digital Technologies <em>&amp;</em> Mathematics</h1>
-      <div class="hero-sub">
-        <span>Dan Tran</span>
-        <span class="arrow">·</span>
-        <span>Software Engineer</span>
-        <span class="arrow">→</span>
-        <span>Technology Educator</span>
-        <span class="arrow">→</span>
-        <span>Future Secondary Teacher</span>
+      <div class="eyebrow-top">Curriculum Vitae — Teaching Portfolio</div>
+      <h1>Dan Tran</h1>
+      <p class="role">Aspiring Secondary Teacher — Digital Technologies &amp; Mathematics</p>
+      <hr class="rule">
+      <p class="summary">An IT professional transitioning into secondary education in New Zealand, combining professional software engineering experience with a student-centred approach to teaching Digital Technologies and Mathematics.</p>
+      <p class="thesis">Problem <span class="arrow">→</span> Logic <span class="arrow">→</span> Mathematics <span class="arrow">→</span> Code <span class="arrow">→</span> Application <span class="arrow">→</span> Data <span class="arrow">→</span> Cloud <span class="arrow">→</span> AI <span class="arrow">→</span> Real-world solution</p>
+      <div class="meta">
+        <span><strong>Location</strong> — Japan → New Zealand</span>
+        <span><strong>Languages</strong> — Vietnamese, Japanese (N1), English</span>
+        <span><strong>Background</strong> — Software Engineering, Cloud, AI</span>
       </div>
-
-      <div class="pipeline" aria-label="Teaching approach: from problem to real-world solution">
-        <span class="chip" style="animation-delay:.05s">Problem</span><span class="sep">→</span>
-        <span class="chip" style="animation-delay:.10s">Logic</span><span class="sep">→</span>
-        <span class="chip" style="animation-delay:.15s">Mathematics</span><span class="sep">→</span>
-        <span class="chip" style="animation-delay:.20s">Code</span><span class="sep">→</span>
-        <span class="chip" style="animation-delay:.25s">Application</span><span class="sep">→</span>
-        <span class="chip" style="animation-delay:.30s">Data</span><span class="sep">→</span>
-        <span class="chip" style="animation-delay:.35s">Cloud</span><span class="sep">→</span>
-        <span class="chip" style="animation-delay:.40s">AI</span><span class="sep">→</span>
-        <span class="chip solution" style="animation-delay:.45s">Real-world solution</span>
-      </div>
-
-      <p class="hero-loc">Based in <strong>Japan</strong> <span class="arrow" style="color:#E2963C">→</span> preparing for <strong>New Zealand</strong></p>
     </div>
   </section>
 
   <section id="about">
     <div class="wrap">
-      <div class="eyebrow">$ about</div>
-      <div class="grid" style="grid-template-columns: 1fr 1fr; gap:48px;">
+      <div class="eyebrow"><span class="n">01</span> About</div>
+      <div class="grid" style="grid-template-columns: 1.1fr 0.9fr; gap:48px;">
         <div class="prose">
           <p>I've built my career in the technology industry — across software development, system engineering, cloud infrastructure and cross-cultural project coordination. After years of shipping software, my long-term goal is to bring that industry experience into the classroom.</p>
           <p>I believe students benefit most when technical concepts are tied to real-world applications. Rather than teaching programming as syntax to memorise, I want students to understand the complete journey from an ordinary problem to a working, real-world solution — and the logic, mathematics and tools that carry them there.</p>
         </div>
-        <div class="prose">
-          <p style="font-family: var(--font-display); font-style: italic; font-size: 1.25rem; color: var(--text);">"Students should understand where mathematics appears in technology, engineering, artificial intelligence and everyday life — not just that it's on the syllabus."</p>
+        <div class="card" style="border-left-color: var(--moss);">
+          <p style="font-family: var(--font-display); font-style: italic; font-size: 1.15rem; color: var(--text); margin:0;">"Students should understand where mathematics appears in technology, engineering, artificial intelligence and everyday life — not just that it's on the syllabus."</p>
         </div>
       </div>
     </div>
@@ -364,61 +284,49 @@
 
   <section id="teaching-areas">
     <div class="wrap">
-      <div class="eyebrow">$ cd teaching-areas</div>
+      <div class="eyebrow"><span class="n">02</span> Teaching Areas</div>
       <div class="section-head">
         <h2 class="section-title">Two subjects, one throughline</h2>
         <p>Digital Technologies is my primary specialisation; Mathematics is the second. I teach them as connected disciplines, not separate boxes on a timetable.</p>
       </div>
 
-      <h3 style="margin-bottom:18px;">Digital Technologies</h3>
+      <h3 style="margin-bottom:18px; font-size:1.2rem;">Digital Technologies</h3>
       <div class="grid grid-3" style="margin-bottom: 44px;">
         <div class="card">
           <h3>Programming</h3>
           <span class="tagline">foundations &amp; computational thinking</span>
-          <div class="tags">
-            <span class="tag">Python</span><span class="tag">JavaScript</span><span class="tag">Java</span><span class="tag">C#</span><span class="tag">Algorithms</span><span class="tag">OOP</span>
-          </div>
+          <div class="tags"><span class="tag">Python</span><span class="tag">JavaScript</span><span class="tag">Java</span><span class="tag">C#</span><span class="tag">Algorithms</span><span class="tag">OOP</span></div>
         </div>
         <div class="card">
           <h3>Web Development</h3>
           <span class="tagline">front-end &amp; back-end</span>
-          <div class="tags">
-            <span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">JavaScript</span><span class="tag">APIs</span><span class="tag">Databases</span>
-          </div>
+          <div class="tags"><span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">JavaScript</span><span class="tag">APIs</span><span class="tag">Databases</span></div>
         </div>
         <div class="card">
           <h3>Software Engineering</h3>
           <span class="tagline">how real teams build</span>
-          <div class="tags">
-            <span class="tag">SDLC</span><span class="tag">System design</span><span class="tag">Testing</span><span class="tag">Git</span><span class="tag">Agile</span>
-          </div>
+          <div class="tags"><span class="tag">SDLC</span><span class="tag">System design</span><span class="tag">Testing</span><span class="tag">Git</span><span class="tag">Agile</span></div>
         </div>
         <div class="card">
           <h3>Cloud Computing</h3>
           <span class="tagline">deploying at scale</span>
-          <div class="tags">
-            <span class="tag">AWS fundamentals</span><span class="tag">Architecture</span><span class="tag">Serverless</span><span class="tag">Deployment</span>
-          </div>
+          <div class="tags"><span class="tag">AWS fundamentals</span><span class="tag">Architecture</span><span class="tag">Serverless</span><span class="tag">Deployment</span></div>
         </div>
         <div class="card">
           <h3>Artificial Intelligence</h3>
           <span class="tagline">generative &amp; responsible</span>
-          <div class="tags">
-            <span class="tag">Generative AI</span><span class="tag">ML fundamentals</span><span class="tag">Responsible AI</span><span class="tag">AI literacy</span>
-          </div>
+          <div class="tags"><span class="tag">Generative AI</span><span class="tag">ML fundamentals</span><span class="tag">Responsible AI</span><span class="tag">AI literacy</span></div>
         </div>
         <div class="card">
           <h3>Cybersecurity</h3>
           <span class="tagline">digital safety, by habit</span>
-          <div class="tags">
-            <span class="tag">Digital safety</span><span class="tag">Online privacy</span><span class="tag">Authentication</span>
-          </div>
+          <div class="tags"><span class="tag">Digital safety</span><span class="tag">Online privacy</span><span class="tag">Authentication</span></div>
         </div>
       </div>
 
-      <h3 style="margin-bottom:8px;">Mathematics</h3>
-      <p class="prose" style="color:var(--text-soft); margin-bottom:22px;">My IT degree covered discrete mathematics, calculus, linear algebra, probability, statistics and mathematical modelling — the exact toolkit that underpins the technology I've built a career on. Students always ask <em>"why do I need to learn this?"</em> This is where I answer them.</p>
-      <div class="card">
+      <h3 style="margin-bottom:8px; font-size:1.2rem;">Mathematics</h3>
+      <p class="prose" style="color:var(--text-soft); margin-bottom:22px; max-width: 68ch;">My IT degree covered discrete mathematics, calculus, linear algebra, probability, statistics and mathematical modelling — the exact toolkit that underpins the technology I've built a career on. Students always ask <em>"why do I need to learn this?"</em> This is where I answer them.</p>
+      <div class="card" style="border-left-color: var(--moss);">
         <span class="tagline">where the syllabus becomes software</span>
         <div class="maplist">
           <div class="maprow"><span class="math">Algebra</span><span class="arrow">→</span><span class="tech">Programming</span></div>
@@ -434,41 +342,37 @@
 
   <section id="philosophy">
     <div class="wrap">
-      <div class="eyebrow">$ cat philosophy.md</div>
+      <div class="eyebrow"><span class="n">03</span> Philosophy</div>
       <div class="section-head">
         <h2 class="section-title">Teaching philosophy</h2>
       </div>
 
       <div class="principle">
         <h3>Learn by building</h3>
-        <div class="prose">
-          <p>Students learn technology most effectively by creating something themselves — a personal website, a small game, a data visualisation, an AI application, an automation tool, a digital portfolio. Every project builds technical knowledge and problem-solving in the same motion.</p>
-        </div>
+        <div class="prose"><p>Students learn technology most effectively by creating something themselves — a personal website, a small game, a data visualisation, an AI application, an automation tool, a digital portfolio. Every project builds technical knowledge and problem-solving in the same motion.</p></div>
       </div>
       <div class="principle">
         <h3>Start with the problem</h3>
-        <div class="before">Not: <span>"Today we are learning loops."</span></div>
-        <div class="after">Instead: "Here's a problem. How do we make a computer solve it?"</div>
-        <div class="prose" style="margin-top:14px;"><p>From there, students discover for themselves why they need variables, conditions, loops, functions and algorithms.</p></div>
+        <div>
+          <div class="before">Not: <span>"Today we are learning loops."</span></div>
+          <div class="after">Instead: "Here's a problem. How do we make a computer solve it?"</div>
+          <div class="prose" style="margin-top:14px;"><p>From there, students discover for themselves why they need variables, conditions, loops, functions and algorithms.</p></div>
+        </div>
       </div>
       <div class="principle">
         <h3>Encourage curiosity</h3>
-        <div class="prose">
-          <p>Technology changes fast, so memorising one language matters less than learning how to ask questions, investigate, experiment, fail, improve and build.</p>
-        </div>
+        <div class="prose"><p>Technology changes fast, so memorising one language matters less than learning how to ask questions, investigate, experiment, fail, improve and build.</p></div>
       </div>
       <div class="principle">
         <h3>Responsible use of AI</h3>
-        <div class="prose">
-          <p>Rather than simply preventing students from using AI, schools should teach them to use it responsibly — what it can and can't do, how to verify its output, and the ethics, privacy, bias and academic-integrity questions that come with it.</p>
-        </div>
+        <div class="prose"><p>Rather than simply preventing students from using AI, schools should teach them to use it responsibly — what it can and can't do, how to verify its output, and the ethics, privacy, bias and academic-integrity questions that come with it.</p></div>
       </div>
     </div>
   </section>
 
   <section id="industry">
     <div class="wrap">
-      <div class="eyebrow">$ echo "from industry to classroom"</div>
+      <div class="eyebrow"><span class="n">04</span> From Industry to Classroom</div>
       <div class="section-head">
         <h2 class="section-title">What I bring from the industry side</h2>
         <p>Students studying Digital Technologies ask real questions about the industry they're being prepared for. I want to bring those questions directly into the classroom.</p>
@@ -482,7 +386,7 @@
           <p class="faq">How does AWS actually work?</p>
         </div>
         <div>
-          <span class="tagline" style="display:block;margin-bottom:12px;">it can become a pathway toward</span>
+          <span class="tagline" style="display:block;margin-bottom:12px; font-size:0.85rem;">it can become a pathway toward</span>
           <div class="chipcloud">
             <span>Software Engineer</span><span>AI Engineer</span><span>Data Scientist</span><span>Cybersecurity Engineer</span><span>Cloud Engineer</span><span>Game Developer</span><span>UX Designer</span><span>Technology Consultant</span><span>Product Manager</span><span>Robotics Engineer</span>
           </div>
@@ -493,7 +397,7 @@
 
   <section id="experience">
     <div class="wrap">
-      <div class="eyebrow">$ ls professional-experience/</div>
+      <div class="eyebrow"><span class="n">05</span> Professional Experience</div>
       <div class="grid grid-2">
         <div class="card">
           <h3>Software Engineering</h3>
@@ -503,10 +407,10 @@
         <div class="card">
           <h3>Cloud — AWS</h3>
           <span class="tagline">services worked with</span>
-          <div class="tags"><span class="tag amber">EC2</span><span class="tag amber">RDS</span><span class="tag amber">S3</span><span class="tag amber">Lambda</span><span class="tag amber">DynamoDB</span><span class="tag amber">CloudWatch</span><span class="tag amber">CloudFront</span><span class="tag amber">EventBridge</span><span class="tag amber">Step Functions</span></div>
+          <div class="tags"><span class="tag">EC2</span><span class="tag">RDS</span><span class="tag">S3</span><span class="tag">Lambda</span><span class="tag">DynamoDB</span><span class="tag">CloudWatch</span><span class="tag">CloudFront</span><span class="tag">EventBridge</span><span class="tag">Step Functions</span></div>
         </div>
         <div class="card">
-          <h3>Development tools</h3>
+          <h3>Development Tools</h3>
           <span class="tagline">how the work actually gets done</span>
           <div class="tags"><span class="tag">Git</span><span class="tag">Docker</span><span class="tag">Jira</span><span class="tag">Backlog</span><span class="tag">Figma</span><span class="tag">Agile</span></div>
         </div>
@@ -516,36 +420,18 @@
           <div class="tags"><span class="tag">Generative AI</span><span class="tag">AI-assisted coding</span><span class="tag">Educational AI</span><span class="tag">AI literacy</span></div>
         </div>
       </div>
-    </div>
-  </section>
 
-  <section id="international">
-    <div class="wrap">
-      <div class="eyebrow">$ whoami --international</div>
-      <div class="grid" style="grid-template-columns: 1fr 1fr; gap: 48px; align-items: start;">
-        <div class="prose">
-          <p>My career has developed across Japan, Vietnam and global technology teams — building strong cross-cultural communication, technical explanation skills, and experience collaborating with people from different professional and cultural backgrounds. I expect these to be especially valuable in New Zealand's multicultural classrooms.</p>
-        </div>
-        <div>
-          <div class="langrow">
-            <span class="name">Vietnamese</span>
-            <span class="langbar"><span style="width:100%"></span></span>
-            <span class="level">Native</span>
+      <div style="margin-top: 44px;">
+        <h3 style="font-size:1.2rem; margin-bottom: 18px;">International Experience</h3>
+        <div class="grid" style="grid-template-columns: 1fr 1fr; gap: 48px; align-items: start;">
+          <div class="prose">
+            <p>My career has developed across Japan, Vietnam and global technology teams — building strong cross-cultural communication, technical explanation skills, and experience collaborating with people from different professional and cultural backgrounds. I expect these to be especially valuable in New Zealand's multicultural classrooms.</p>
           </div>
-          <div class="langrow">
-            <span class="name">Japanese</span>
-            <span class="langbar"><span style="width:88%"></span></span>
-            <span class="level">Professional · JLPT N1</span>
-          </div>
-          <div class="langrow">
-            <span class="name">English</span>
-            <span class="langbar"><span style="width:75%"></span></span>
-            <span class="level">Professional working</span>
-          </div>
-          <div class="langrow">
-            <span class="name">Chinese</span>
-            <span class="langbar"><span style="width:30%"></span></span>
-            <span class="level">Basic</span>
+          <div>
+            <div class="langrow"><span class="name">Vietnamese</span><span class="langbar"><span style="width:100%"></span></span><span class="level">Native</span></div>
+            <div class="langrow"><span class="name">Japanese</span><span class="langbar"><span style="width:88%"></span></span><span class="level">Professional · JLPT N1</span></div>
+            <div class="langrow"><span class="name">English</span><span class="langbar"><span style="width:75%"></span></span><span class="level">Professional working</span></div>
+            <div class="langrow"><span class="name">Chinese</span><span class="langbar"><span style="width:30%"></span></span><span class="level">Basic</span></div>
           </div>
         </div>
       </div>
@@ -554,51 +440,26 @@
 
   <section id="projects">
     <div class="wrap">
-      <div class="eyebrow">$ ls student-projects/</div>
+      <div class="eyebrow"><span class="n">06</span> Example Student Projects</div>
       <div class="section-head">
-        <h2 class="section-title">Example student projects</h2>
-        <p>Projects I'd run in class — each one develops technical skill and problem-solving together.</p>
+        <h2 class="section-title">Projects I would run in class</h2>
+        <p>Each one develops technical skill and problem-solving together.</p>
       </div>
       <div class="grid grid-3">
-        <div class="proj">
-          <span class="num">01</span>
-          <h3>Personal Portfolio Website</h3>
-          <p>Students design and build their first personal website.</p>
-          <div class="tags"><span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">JavaScript</span><span class="tag">Git</span></div>
-        </div>
-        <div class="proj">
-          <span class="num">02</span>
-          <h3>Python Quiz Application</h3>
-          <p>An interactive quiz program built from the ground up.</p>
-          <div class="tags"><span class="tag">Variables</span><span class="tag">Loops</span><span class="tag">Functions</span></div>
-        </div>
-        <div class="proj">
-          <span class="num">03</span>
-          <h3>Mathematics Visualisation</h3>
-          <p>Using Python to visualise mathematical concepts as graphs.</p>
-          <div class="tags"><span class="tag">Functions</span><span class="tag">Statistics</span><span class="tag">Data viz</span></div>
-        </div>
-        <div class="proj">
-          <span class="num">04</span>
-          <h3>AI Study Assistant</h3>
-          <p>A simple AI-powered educational application.</p>
-          <div class="tags"><span class="tag">APIs</span><span class="tag">Prompt design</span><span class="tag">Responsible AI</span></div>
-        </div>
-        <div class="proj">
-          <span class="num">05</span>
-          <h3>School Problem Solver</h3>
-          <p>Students identify a real problem in their school — a booking system, a study planner — and build the fix.</p>
-          <div class="tags"><span class="tag">Requirements</span><span class="tag">Design</span><span class="tag">Testing</span><span class="tag">Presentation</span></div>
-        </div>
+        <div class="proj"><span class="num">01</span><h3>Personal Portfolio Website</h3><p>Students design and build their first personal website.</p><div class="tags"><span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">JavaScript</span><span class="tag">Git</span></div></div>
+        <div class="proj"><span class="num">02</span><h3>Python Quiz Application</h3><p>An interactive quiz program built from the ground up.</p><div class="tags"><span class="tag">Variables</span><span class="tag">Loops</span><span class="tag">Functions</span></div></div>
+        <div class="proj"><span class="num">03</span><h3>Mathematics Visualisation</h3><p>Using Python to visualise mathematical concepts as graphs.</p><div class="tags"><span class="tag">Functions</span><span class="tag">Statistics</span><span class="tag">Data viz</span></div></div>
+        <div class="proj"><span class="num">04</span><h3>AI Study Assistant</h3><p>A simple AI-powered educational application.</p><div class="tags"><span class="tag">APIs</span><span class="tag">Prompt design</span><span class="tag">Responsible AI</span></div></div>
+        <div class="proj"><span class="num">05</span><h3>School Problem Solver</h3><p>Students identify a real problem in their school — a booking system, a study planner — and build the fix.</p><div class="tags"><span class="tag">Requirements</span><span class="tag">Design</span><span class="tag">Testing</span><span class="tag">Presentation</span></div></div>
       </div>
     </div>
   </section>
 
   <section id="roadmap">
     <div class="wrap">
-      <div class="eyebrow">$ cat roadmap.log</div>
+      <div class="eyebrow"><span class="n">07</span> Teaching Development Journey</div>
       <div class="section-head">
-        <h2 class="section-title">Teaching development journey</h2>
+        <h2 class="section-title">Path into secondary teaching</h2>
         <p>My path from the technology industry into secondary teaching in New Zealand.</p>
       </div>
       <div class="timeline">
@@ -608,20 +469,16 @@
         <div class="tl-item" data-n="4"><h3>Teaching practicum</h3><p>Complete school-based teaching practicum.</p></div>
         <div class="tl-item" data-n="5"><h3>Registration</h3><p>Apply for New Zealand teacher registration and a practising certificate.</p></div>
         <div class="tl-item" data-n="6"><h3>Begin teaching</h3><p>Start teaching Digital Technologies and Mathematics at a NZ secondary school.</p></div>
-        <div class="tl-item" data-n="7"><h3>Keep building</h3><p>Ongoing professional development in:</p>
-          <ul><li>AI education</li><li>Computer Science education</li><li>Mathematics education</li><li>Educational technology &amp; curriculum design</li></ul>
-        </div>
+        <div class="tl-item" data-n="7"><h3>Keep building</h3><p>Ongoing professional development in:</p><ul><li>AI education</li><li>Computer Science education</li><li>Mathematics education</li><li>Educational technology &amp; curriculum design</li></ul></div>
       </div>
     </div>
   </section>
 
   <section class="closing">
     <div class="wrap">
-      <div class="eyebrow">$ echo "long-term vision"</div>
+      <div class="eyebrow"><span class="n">08</span> Long-Term Vision</div>
       <h2>My goal isn't simply to teach students how to code.</h2>
-      <div class="prose" style="margin-top:20px; max-width: 58ch;">
-        <p style="color: var(--chalk-soft);">I want to help them think logically, solve difficult problems, understand mathematics, use technology creatively, work well with others, use AI responsibly — and build things that have real value.</p>
-      </div>
+      <div class="prose"><p>I want to help them think logically, solve difficult problems, understand mathematics, use technology creatively, work well with others, use AI responsibly — and build things that have real value.</p></div>
       <div class="equation">Education × Mathematics × Technology × Artificial Intelligence × Industry</div>
     </div>
   </section>
